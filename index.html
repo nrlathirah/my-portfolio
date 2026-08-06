@@ -5,40 +5,86 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+    <title>Nurul Athirah | Software Developer</title>
+    <meta name="description" content="Portfolio of Nurul Athirah Zaini, a Software Developer building enterprise web applications, real-time dashboards, and analytics solutions with Vue.js, Node.js, Express.js, and PostgreSQL." />
+    <meta name="author" content="Nurul Athirah Zaini" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nurul Athirah | Software Developer" />
+    <meta property="og:description" content="Software Developer building enterprise web applications, real-time dashboards, and analytics solutions with Vue.js, Node.js, Express.js, and PostgreSQL." />
+    <meta property="og:image" content="./assets/profile-pic.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Nurul Athirah | Software Developer" />
+    <meta name="twitter:description" content="Software Developer building enterprise web applications, real-time dashboards, and analytics solutions with Vue.js, Node.js, Express.js, and PostgreSQL." />
+    <meta name="twitter:image" content="./assets/profile-pic.png" />
+
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="mediaqueries.css" />
+
+    <script>
+      (function () {
+        var saved = localStorage.getItem("theme");
+        var theme = saved || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        
+        "name": "Nurul Athirah Zaini",
+        "jobTitle": "Software Developer",
+        "url": "https://github.com/nrlathirah",
+        "sameAs": [
+          "https://www.linkedin.com/in/nrlathirah/",
+          "https://github.com/nrlathirah"
+        ],
+        "knowsAbout": ["Vue.js", "Node.js", "Express.js", "PostgreSQL", "JavaScript", "RESTful APIs"]
+      }
+    </script>
   </head>
 
   <body>
+    <div id="scroll-progress"></div>
+
     <nav id="desktop-nav">
-      <div class="logo">Nurul Athirah</div>
-      
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
+      <a class="logo" href="#profile" aria-label="Nurul Athirah, back to top">NA</a>
+
+      <div class="nav-right">
+        <ul class="nav-links" id="nav-links-desktop"></ul>
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+        </button>
       </div>
     </nav>
 
     <nav id="hamburger-nav">
-      <div class="logo">Nurul Athirah</div>
+      <a class="logo" href="#profile" aria-label="Nurul Athirah, back to top">NA</a>
 
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+      <div class="nav-right">
+        <button class="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="5" /><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" /></svg>
+        </button>
 
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        <div class="hamburger-menu">
+          <button class="hamburger-icon" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <ul class="menu-links" id="nav-links-mobile"></ul>
         </div>
       </div>
     </nav>
@@ -46,29 +92,34 @@
 
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/profile-pic.png"/>
+        <img src="./assets/profile-pic.png" alt="Portrait of Nurul Athirah Zaini"/>
       </div>
 
       <div class="section__text">
 
         <p class="section__text__p1">Hello, I'm</p>
         <h1 class="title">Nurul Athirah</h1>
-        <p class="section__text__p2">Front-End Developer</p>
+        <p class="section__text__p2">
+          <span class="sr-only">Software Developer</span>
+          <span id="typewriter" aria-hidden="true"></span><span class="typewriter-cursor" aria-hidden="true"></span>
+        </p>
 
         <div class="btn-container">
-          <button class="btn btn-color-2" onclick="window.open('./assets/Resume-Nurul_Athirah.pdf')">
+          <a class="btn btn-color-2" href="./assets/Resume-Nurul_Athirah.pdf" download>
             Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+          </a>
+          <a class="btn btn-color-1" href="#contact">
             Contact Info
-          </button>
+          </a>
         </div>
 
         <div id="socials-container">
-            <img src="./assets/linkedin.png" alt="My LinkedIn profile" class="icon"
-            onclick="window.open('https://www.linkedin.com/in/nurul-athirah-9b1944204/', '_blank')" />
-            <img src="./assets/github.png" alt="My Github profile" class="icon"
-            onclick="window.open('https://github.com/nrlathirah', '_blank')" />
+            <a class="icon-link" href="https://www.linkedin.com/in/nrlathirah/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+            </a>
+            <a class="icon-link" href="https://github.com/nrlathirah" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+              <svg class="icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" /></svg>
+            </a>
         </div>
 
       </div>
@@ -82,14 +133,14 @@
       <div class="section-container">
         <div class="about-details-container">
 
-          <div class="about-containers">
-            <div class="details-container">
-              <img src="./assets/experience.png" class="icon" />
+          <div class="about-containers reveal-group">
+            <div class="details-container reveal">
+              <img src="./assets/experience.png" class="icon" alt="" />
               <h3>Experience</h3>
-              <p>3+ years Front-End Development</p>
+              <p><span class="stat-number" data-target="4">0</span>+ years Software Development</p>
             </div>
-            <div class="details-container">
-              <img src="./assets/education.png" class="icon" />
+            <div class="details-container reveal">
+              <img src="./assets/education.png" class="icon" alt="" />
               <h3>Education</h3>
               <p>Bachelors of Computer Science</p>
             </div>
@@ -97,123 +148,176 @@
 
           <div class="text-container">
             <p>
-                With a Bachelor's Degree in Computer Science and hands-on experience as a Front-End Developer, my focus is on creating intuitive and responsive websites using HTML, CSS, and JavaScript. Collaborative projects have ranged from redesigning websites to developing real-time seating displays, all aimed at enhancing user experience. Constantly seeking to expand my skill set, I am currently honing my expertise in modern front-end tools and frameworks like React and Bootstrap to remain at the forefront of industry trends.
+                With a Bachelor's Degree in Computer Science Software Developer and hands-on experience developing enterprise web applications, real-time dashboards, and analytics platforms using Vue.js, Node.js, Express.js, and PostgreSQL. Experienced in building scalable, data-driven solutions, including reusable components, reporting modules, RESTful APIs, and interactive data visualizations for enterprise and government systems. Skilled in developing responsive, user-focused interfaces while ensuring clean architecture, maintainable code, and seamless integration between frontend and backend services. Passionate about solving complex problems, quickly adapting to existing codebases and technologies, and delivering reliable, high-performance software that enhances operational efficiency and user experience.
+
             </p>
           </div>
 
         </div>
       </div>
 
-      <img src="./assets/arrow.png" class="icon arrow" onclick="location.href='./#experience'" />
+      <a href="#experience" aria-label="Scroll to Work Experience section">
+        <svg class="icon arrow" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+      </a>
     </section>
 
 
     <section id="experience">
       <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
+      <h1 class="title">Work Experience</h1>
 
       <div class="experience-details-container">
-        <div class="about-containers">
+        <div class="job-timeline reveal-group">
 
-          <div class="details-container">
-            <h2 class="experience-sub-title">Front-End</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
+          <div class="job-card reveal">
+            <div class="job-card-header">
+              <div>
+                <h3 class="job-title">Software Developer</h3>
+                <p class="job-company">Millennium Radius Sdn. Bhd.</p>
+              </div>
+              <p class="job-dates">Oct 2025 – Present</p>
+            </div>
+            <p class="job-highlight">Building a real-time emergency operations dashboard for Telekom Malaysia — reusable modules, reporting, and data visualizations adopted across multiple portals.</p>
+          </div>
+
+          <div class="job-card reveal">
+            <div class="job-card-header">
+              <div>
+                <h3 class="job-title">Frontend Developer</h3>
+                <p class="job-company">mm2 Screen Management Sdn. Bhd.</p>
+              </div>
+              <p class="job-dates">Jan 2022 – Sep 2025</p>
+            </div>
+            <p class="job-highlight">Built real-time cinema seating visualizations, operational dashboards, and customizable food & beverage ordering modules for daily cinema operations.</p>
+          </div>
+
+          <div class="job-card reveal">
+            <div class="job-card-header">
+              <div>
+                <h3 class="job-title">Web Developer (Intern → Freelance)</h3>
+                <p class="job-company">Quick Time Machines Sdn. Bhd.</p>
+              </div>
+              <p class="job-dates">Oct 2020 – Oct 2025</p>
+            </div>
+            <p class="job-highlight">Maintained an e-commerce platform, built responsive email newsletters, and applied SEO improvements across digital marketing campaigns.</p>
+          </div>
+
+        </div>
+      </div>
+      <a href="#skills" aria-label="Scroll to Skills section">
+        <svg class="icon arrow" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+      </a>
+    </section>
+
+
+    <section id="skills">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Skills</h1>
+
+      <div class="experience-details-container">
+        <div class="about-containers reveal-group">
+
+          <div class="details-container reveal">
+            <h2 class="experience-sub-title">Frontend</h2>
+            <div class="skills-group">
+              <div class="skill-bar" data-level="90">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Vue.js</span>
+                  <span class="skill-level">Experienced</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="90">
+                <div class="skill-bar-header">
+                  <span class="skill-name">JavaScript (ES6+)</span>
+                  <span class="skill-level">Experienced</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>SASS</h3>
-                  <p>Basic</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="95">
+                <div class="skill-bar-header">
+                  <span class="skill-name">HTML5 & CSS3</span>
+                  <span class="skill-level">Experienced</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Intermediate</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="90">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Tailwind CSS</span>
+                  <span class="skill-level">Experienced</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>TypeScript</h3>
-                  <p>Basic</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="65">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Pinia</span>
+                  <span class="skill-level">Intermediate</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>Tailwind</h3>
-                  <p>Experienced</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="40">
+                <div class="skill-bar-header">
+                  <span class="skill-name">React</span>
+                  <span class="skill-level">Basic</span>
                 </div>
-              </article>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
             </div>
           </div>
 
-          <div class="details-container">
-            <h2 class="experience-sub-title">Others</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>PHP</h3>
-                  <p>Basic</p>
+          <div class="details-container reveal">
+            <h2 class="experience-sub-title">Backend & Database</h2>
+            <div class="skills-group">
+              <div class="skill-bar" data-level="90">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Node.js</span>
+                  <span class="skill-level">Experienced</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>Bootstrap</h3>
-                  <p>Basic</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="90">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Express.js</span>
+                  <span class="skill-level">Experienced</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>C++</h3>
-                  <p>Basic</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="90">
+                <div class="skill-bar-header">
+                  <span class="skill-name">RESTful APIs</span>
+                  <span class="skill-level">Experienced</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>React</h3>
-                  <p>Basic</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="65">
+                <div class="skill-bar-header">
+                  <span class="skill-name">PostgreSQL</span>
+                  <span class="skill-level">Intermediate</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>SQL</h3>
-                  <p>Intermediate</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="65">
+                <div class="skill-bar-header">
+                  <span class="skill-name">Sequelize</span>
+                  <span class="skill-level">Intermediate</span>
                 </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" class="icon" />
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
+              <div class="skill-bar" data-level="65">
+                <div class="skill-bar-header">
+                  <span class="skill-name">SQL</span>
+                  <span class="skill-level">Intermediate</span>
                 </div>
-              </article>
+                <div class="skill-track"><div class="skill-fill"></div></div>
+              </div>
             </div>
           </div>
 
         </div>
       </div>
-      <img src="./assets/arrow.png" class="icon arrow" onclick="location.href='./#projects'" />
+      <a href="#projects" aria-label="Scroll to Projects section">
+        <svg class="icon arrow" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+      </a>
     </section>
 
 
@@ -223,40 +327,43 @@
 
       <div class="experience-details-container">
         <div class="about-containers">
-          <div class="details-container color-container">
+          <div class="details-container color-container reveal">
             <div class="article-container">
-              <img src="./assets/project-1.png" alt="Project 1" class="project-img" />
+              <img src="./assets/project-emergency-ops.svg" alt="Emergency Operations Dashboard" class="project-img" />
             </div>
             <div class="project-info">
-              <h2 class="experience-sub-title project-title">Task Flow</h2>
+              <h2 class="experience-sub-title project-title">Emergency Operations Dashboard <span class="project-status">In Progress</span></h2>
               <div class="btn-container">
-                <button class="btn btn-color-2 project-btn" onclick="window.open('https://github.com/nrlathirah/task-flow', '_blank')">
+                <a class="btn btn-color-2 project-btn" href="https://github.com/nrlathirah/emergency-operations-dashboard" target="_blank" rel="noopener noreferrer">
                   Github
-                </button>
-                <button class="btn btn-color-2 project-btn" onclick="window.open('https://resonant-lolly-0457f7.netlify.app/', '_blank')">
+                </a>
+                <a class="btn btn-color-2 project-btn" href="https://emergency-operations-dashboard.vercel.app" target="_blank" rel="noopener noreferrer">
                   Live Demo
-                </button>
+                </a>
               </div>
-              <p class="project-description">This project is designed to help users manage their tasks effectively, allowing them to create, edit, and delete tasks easily.</p> <!-- Added description -->
+              <p class="project-description">A real-time, multi-agency emergency operations dashboard with live vehicle tracking on a map, automated dispatch, case lifecycle simulation, role-based access, and reporting. Built independently with Vue.js, Node.js/Express, and PostgreSQL, inspired by my professional experience building real-time operations platforms.</p>
             </div>
           </div>
         </div>
-        <img src="./assets/arrow.png" class="icon arrow" onclick="location.href='./#contact'" />
+        <a href="#contact" aria-label="Scroll to Contact section">
+          <svg class="icon arrow" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg>
+        </a>
       </div>
+    </section>
 
 
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
 
-      <div class="contact-info-upper-container">
+      <div class="contact-info-upper-container reveal">
         <div class="contact-info-container">
-          <img src="./assets/email.png" class="icon contact-icon email-icon" />
+          <svg class="icon contact-icon email-icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
           <p><a href="mailto:nurulathirah.zn@gmail.com">nurulathirah.zn@gmail.com</a></p>
         </div>
         <div class="contact-info-container">
-          <img src="./assets/linkedin.png" class="icon contact-icon" />
-          <p><a href="https://www.linkedin.com/in/nurul-athirah-9b1944204/" target="_blank">LinkedIn</a></p>
+          <svg class="icon contact-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect x="2" y="9" width="4" height="12" /><circle cx="4" cy="4" r="2" /></svg>
+          <p><a href="https://www.linkedin.com/in/nrlathirah/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
         </div>
       </div>
     </section>
@@ -265,16 +372,11 @@
     <footer>
       <nav>
         <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+          <ul class="nav-links" id="nav-links-footer"></ul>
         </div>
       </nav>
 
-      <p>Copyright &#169; 2024 Nurul Athirah. All Rights Reserved.</p>
+      <p>Copyright &#169; 2026 Nurul Athirah. All Rights Reserved.</p>
     </footer>
 
     <script src="script.js"></script>
